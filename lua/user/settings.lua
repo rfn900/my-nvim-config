@@ -5,7 +5,8 @@ local config = {
 
   -- Add plugins
   plugins = {
-    -- { "andweeb/presence.nvim" },
+    { "sheerun/vim-polyglot" },
+    { "mattn/emmet-vim" },
     -- {
     -- "ray-x/lsp_signature.nvim",
     -- event = "BufRead",
@@ -51,9 +52,12 @@ local config = {
     local set = vim.opt
     -- Set options
     set.relativenumber = true
+    vim.g["user_emmet_leader_key"]='<C-x>'
 
     -- Set key bindings
     map("n", "<C-s>", ":w!<CR>", opts)
+    map("n", "sv", ":vsplit<CR>", opts)
+    map("n", "sh", ":split<CR>", opts)
 
     -- Set autocommands
     vim.cmd [[
