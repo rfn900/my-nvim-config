@@ -9,7 +9,7 @@ function M.config()
   end
 
   local colors = {
-    yellow = "#ecbe7b",
+    yellow = "#dcb074",
     yellow_1 = "#ff9640",
     grey = "#2c323c",
     white = "#bbc2cf",
@@ -21,6 +21,7 @@ function M.config()
     magenta = "#c678dd",
     blue = "#51afef",
     red = "#ec5f67",
+    purple = "#9c78d6",
   }
 
   local conditions = {
@@ -37,14 +38,21 @@ function M.config()
     end,
   }
 
+  local mode = {
+    "mode",
+    separator = { right = "", left = "" },
+    padding = { left = 1, right = 0 },
+  }
+
   local config = {
     options = {
+      theme = "nightfox",
       disabled_filetypes = { "NvimTree", "neo-tree", "dashboard", "Outline" },
       component_separators = "",
       section_separators = "",
     },
     sections = {
-      lualine_a = {},
+      lualine_a = { mode },
       lualine_b = {},
       lualine_y = {},
       lualine_z = {},
@@ -70,25 +78,20 @@ function M.config()
   end
 
   ins_left {
-    function()
-      return "▊"
-    end,
-    color = { fg = colors.blue },
-    padding = { left = 0, right = 0 },
-  }
-
-  ins_left {
     "branch",
     icon = "",
+    separator = { right = "", left = "" },
     color = { fg = colors.violet, gui = "bold" },
-    padding = { left = 2, right = 1 },
+    padding = { left = 1, right = 1 },
   }
 
   ins_left {
-    "filetype",
-    cond = conditions.buffer_not_empty,
-    color = { fg = colors.magenta, gui = "bold" },
-    padding = { left = 2, right = 1 },
+    "filename",
+    path = 0,
+    shorting_target = 20,
+    separator = { right = "", left = "" },
+    color = { fg = colors.white, bg = colors.grey, gui = "bold" },
+    padding = { left = 1, right = 1 },
   }
 
   ins_left {
@@ -112,6 +115,7 @@ function M.config()
       color_warn = { fg = colors.yellow },
       color_info = { fg = colors.cyan },
     },
+    colors = { bg = colors.darkblue },
     padding = { left = 2, right = 1 },
   }
 

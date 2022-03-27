@@ -28,5 +28,5 @@ else
   error "The polish value in your user configuration must be a function"
 end
 
--- keep this last:
+-- Save this to last:
 utils.compiled()

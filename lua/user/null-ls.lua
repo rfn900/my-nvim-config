@@ -19,9 +19,11 @@ function M.config()
     debug = false,
     sources = {
       -- Set a formatter
-      formatting.rufo,
+      formatting.prettier,
+      formatting.black.with { extra_args = { "--fast" } },
+      formatting.stylua,
       -- Set a linter
-      diagnostics.rubocop,
+      -- diagnostics.eslint,
     },
     -- NOTE: You can remove this on attach function to disable format on save
     on_attach = function(client)

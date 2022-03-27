@@ -38,6 +38,7 @@ local colors = {
   gold = "#ffcc00",
   cyan = "#56b6c2",
   purple = "#c678dd",
+  purple_2 = "#9c78d6",
 }
 
 return colors
